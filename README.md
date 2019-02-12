@@ -18,10 +18,10 @@ The example of memory efficient implementation of Data Structure to store and tr
     2. Cycle-traversing for each row and column  
 * Tests  
 
-### Class interface  
+### Interface  
 
 * __from_elements(elements, rows_count, columns_count)__  
-create matrix of size rows_count * columns_count from non-zero-values elements list  
+create matrix of size `rows_count * columns_count` from non-zero-values elements list  
 
 * __from_matrix(matrix)__  
 create from existing matrix  
