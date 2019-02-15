@@ -21,12 +21,12 @@ class SparseMatrix:
         self.columns = [None] * self.columns_count
         self.rows = [None] * self.rows_count
 
-    @staticmethod
-    def from_matrix(matrix=[]):
+    @classmethod
+    def from_matrix(cls, matrix=[]):
         rows_count = len(matrix)
         columns_count = len(matrix[0]) if rows_count > 0 else 0
 
-        created = SparseMatrix(rows_count, columns_count)
+        created = cls(rows_count, columns_count)
 
         for i in range(len(matrix)):
             for j in range(len(matrix[i])):
@@ -35,9 +35,9 @@ class SparseMatrix:
 
         return created
 
-    @staticmethod
-    def from_elements(elements=[], rows_count=0, columns_count=0):
-        created = SparseMatrix(rows_count, columns_count)
+    @classmethod
+    def from_elements(cls, elements=[], rows_count=0, columns_count=0):
+        created = cls(rows_count, columns_count)
         for x in elements:
             created._insert(SparseMatrixNode(x[0], x[1]))
         return created
