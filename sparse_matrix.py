@@ -14,6 +14,7 @@ class SparseMatrixNode:
     def get_bottom(self):
         return self.bottom
 
+
 class SparseMatrix:
     def __init__(self, rows_count=0, columns_count=0):
         self.columns_count = columns_count
@@ -137,19 +138,21 @@ class SparseMatrix:
                 non_zeros.append((node.position, node.value))
                 node = node.right
         return non_zeros
-    
+
     def get_first(self, row_idx=-1, col_idx=-1):
         if row_idx != -1:
             return self.rows[row_idx]
         else:
             return self.columns[col_idx]
 
-elems = [((0, 0), -2), ((3, 3), 11), ((2, 3), 23),
-         ((4, 3), 22), ((1, 1), 24), ((0, 1), -12), ((9, 0), 666), ((0, 9), 1388)]
-# matrix = [[0, 0, 0, 0], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 
-mt = SparseMatrix.from_elements(elems, 10, 10)
-# mt.change_element((1, 1), 101)
+if __name__ == "__main__":
+    elems = [((0, 0), -2), ((3, 3), 11), ((2, 3), 23),
+             ((4, 3), 22), ((1, 1), 24), ((0, 1), -12), ((9, 0), 666), ((0, 9), 1388)]
+    matrix = [[0, 0, 0, 0], [5, 6, 0, 8], [9, 0, 11, 12], [13, 14, 15, 16]]
 
-print(mt)
-print(mt.get_non_zeros())
+    mt = SparseMatrix.from_matrix(matrix)
+    mt.change_element((2, 1), 111111111111111111111111)
+
+    print(mt)
+    print(mt.get_non_zeros())
